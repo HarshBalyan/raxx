@@ -23,7 +23,7 @@ defmodule RaxxView.MixProject do
   defp deps do
     [
       {:raxx, "~> 0.17.6 or ~> 0.18.0 or ~> 1.0"},
-      {:eex_html, "~> 0.2.1 or ~> 1.0"},
+      {:eex_html, github: "HarshBalyan/eex_html"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end

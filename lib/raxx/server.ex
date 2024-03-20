@@ -166,21 +166,21 @@ defmodule Raxx.Server do
       @impl unquote(__MODULE__)
       def handle_data(data, state) do
         import Logger
-        Logger.warn("Received unexpected data: #{inspect(data)}")
+        Logger.warning("Received unexpected data: #{inspect(data)}")
         {[], state}
       end
 
       @impl unquote(__MODULE__)
       def handle_tail(trailers, state) do
         import Logger
-        Logger.warn("Received unexpected trailers: #{inspect(trailers)}")
+        Logger.warning("Received unexpected trailers: #{inspect(trailers)}")
         {[], state}
       end
 
       @impl unquote(__MODULE__)
       def handle_info(message, state) do
         import Logger
-        Logger.warn("Received unexpected message: #{inspect(message)}")
+        Logger.warning("Received unexpected message: #{inspect(message)}")
         {[], state}
       end
 

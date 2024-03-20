@@ -89,7 +89,7 @@ defmodule Raxx.SimpleServer do
       def handle_info(message, state) do
         require Logger
 
-        Logger.warn(
+        Logger.warning(
           "#{inspect(self())} received unexpected message in handle_info/2: #{inspect(message)}"
         )
 
