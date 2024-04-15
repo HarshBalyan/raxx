@@ -79,7 +79,6 @@ defmodule Raxx.View do
   Use `javascript_variables/1` for injecting variables into any JavaScript environment.
   """
   defmacro __using__(options) do
-    IO.inspect(options, label: :raxx_view_options)
     {options, []} = Module.eval_quoted(__CALLER__, options)
 
     {arguments, options} = Keyword.pop_first(options, :arguments, [])
@@ -122,7 +121,7 @@ defmodule Raxx.View do
 
     optional_values = {:%{}, [], optional_values}
 
-    compiled_page = EEx.compile_file(page_template, engine: EExHTML.Engine) |> IO.inspect(label: :compiled_page)
+    compiled_page = EEx.compile_file(page_template, engine: EExHTML.Engine)
 
     # This step would not be necessary if the compiler could return a wrapped value.
     safe_compiled_page =
@@ -130,10 +129,9 @@ defmodule Raxx.View do
         EExHTML.raw(unquote(compiled_page))
       end
 
-    IO.inspect(layout_template, label: :layout_template)
     compiled_layout =
       if layout_template do
-        EEx.compile_file(layout_template, engine: EExHTML.Engine) |> IO.inspect(label: :compiled_layout)
+        EEx.compile_file(layout_template, engine: EExHTML.Engine)
       else
         {:__content__, [], nil}
       end
